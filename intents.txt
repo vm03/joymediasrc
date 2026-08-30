@@ -1,0 +1,37 @@
+adb shell dumpsys package com.bw.mediaplayer
+Activity Resolver Table:
+  Non-Data Actions:
+      android.intent.action.MAIN:
+        ab61ee5 com.bw.mediaplayer/.activity.MainActivity filter 3dc427a
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.DEFAULT"
+          Category: "android.intent.category.LAUNCHER"
+          Category: "android.intent.category.APP_MUSIC"
+      com.bw.intent.action.AUX:
+        ab61ee5 com.bw.mediaplayer/.activity.MainActivity filter cca3d5d
+          Action: "com.bw.intent.action.AUX"
+          Category: "android.intent.category.DEFAULT"
+      com.bw.intent.action.IMAGE:
+        ab61ee5 com.bw.mediaplayer/.activity.MainActivity filter 892be07
+          Action: "com.bw.intent.action.IMAGE"
+          Category: "android.intent.category.DEFAULT"
+      com.bw.intent.action.MUSIC:
+        ab61ee5 com.bw.mediaplayer/.activity.MainActivity filter 822c021
+          Action: "com.bw.intent.action.MUSIC"
+          Category: "android.intent.category.DEFAULT"
+      com.bw.intent.action.RADIO:
+        ab61ee5 com.bw.mediaplayer/.activity.MainActivity filter e64be88
+          Action: "com.bw.intent.action.RADIO"
+          Category: "android.intent.category.DEFAULT"
+      com.bw.intent.action.VIDEO:
+        ab61ee5 com.bw.mediaplayer/.activity.MainActivity filter 7dc0c46
+          Action: "com.bw.intent.action.VIDEO"
+          Category: "android.intent.category.DEFAULT"
+      com.bw.intent.action.BTAUDIO:
+        ab61ee5 com.bw.mediaplayer/.activity.MainActivity filter ccb3b34
+          Action: "com.bw.intent.action.BTAUDIO"
+          Category: "android.intent.category.DEFAULT"
+      com.bw.mediasource.usb:
+        ab61ee5 com.bw.mediaplayer/.activity.MainActivity filter 565aa2b
+          Action: "com.bw.mediasource.usb"
+          Category: "android.intent.category.DEFAULT"

@@ -5,9 +5,14 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- Для работы на новых версиях Android -->
     <uses-permission android:name="android.permission.QUICKBOOT_POWERON" />
-    <!-- Для отслеживания выхода из режима сна -->
+    <!-- Для удержания WakeLock -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Для работы с PowerManager -->
     <uses-permission android:name="android.permission.DEVICE_POWER" />
+    <!-- Для запуска фонового сервиса -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPT_EARLY" />
 
     <application
         android:allowBackup="true"
@@ -19,15 +24,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Joymediasrc"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".AutoSourceService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Auto source switching" />
+        </service>
+
         <receiver
             android:name=".BootReceiver"
             android:enabled="true"
@@ -35,15 +51,6 @@
             <intent-filter android:priority="999">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name=".ScreenReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter android:priority="999">
-                <action android:name="android.intent.action.SCREEN_ON" />
-                <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
 
